@@ -75,9 +75,8 @@ public class APIServiceConfig {
         JSONObject json = new JSONObject(response.getBody());
 
         Iterator<String> keys = json.keys();
-        
-        String str_Name=keys.next(); 
-        String value = json.optString(str_Name);
+        String tituloFilme=keys.next(); 
+        String value = json.optString(tituloFilme);
         Gson g = new Gson();
         FilmeDetalhes p =  g.fromJson(value, FilmeDetalhes.class);
         return p;

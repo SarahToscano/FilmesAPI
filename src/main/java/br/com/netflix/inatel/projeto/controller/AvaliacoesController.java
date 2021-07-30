@@ -122,6 +122,7 @@ public class AvaliacoesController {
 	}
 	
 	@GetMapping("/{id}")
+	@Cacheable(value = "listaDeAvaliacoes")
 	public ResponseEntity<AvaliacoesDTO> list(@PathVariable("id") Long id) {
 
 		Optional<Avaliacao> optionalPlaylist = avaliacaoRepository.findById(id);
