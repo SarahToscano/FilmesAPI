@@ -52,11 +52,13 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET, "/pesquisar/filmes/*/*").permitAll()
 		.antMatchers(HttpMethod.GET, "/pesquisar/imdb/*/*").permitAll()
 		.antMatchers(HttpMethod.GET, "/playlist/*").permitAll()
+		.antMatchers("/h2-console/**").permitAll()
+
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and().addFilterBefore(new AutenticacaoTokenFilter(tokenService, usuarioRepository), UsernamePasswordAuthenticationFilter.class);
-
+		 http.headers().frameOptions().disable();
 
 	}
 	

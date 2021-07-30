@@ -2,11 +2,11 @@ package br.com.netflix.inatel.projeto.repository;
 import java.util.Optional;
 
 import org.junit.Assert;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.Test;
 
 import br.com.netflix.inatel.projeto.model.Playlist;
 
@@ -18,7 +18,7 @@ public class PlaylistRepositoryTest {
 	
 	@Test
 	public void deveListarPorNome() {
-		String nome = "harry potter";
+		String nome = "hp";
 		Playlist playlist = playRepository.findByNome(nome).get();
 		Assert.assertEquals(playlist.getNome(), nome);
 	}
